@@ -1,0 +1,44 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+C:\Users\Administrator\Desktop\car\car-project\Project\car-project.uvproj
+Project File Date:  10/05/2014
+
+<h2>Output:</h2>
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling main.c...
+..\USER\MAIN.C(10): warning C206: 'GO': missing function-prototype
+compiling 12864.c...
+compiling direction.c...
+..\FWLIB\DIRECTION.C(34): error C244: 'Z_IN1': can't initialize, bad type or class
+..\FWLIB\DIRECTION.C(34): error C132: 'Z_IN1': not in formal parameter list
+..\FWLIB\DIRECTION.C(35): error C244: 'Z_IN2': can't initialize, bad type or class
+..\FWLIB\DIRECTION.C(35): error C132: 'Z_IN2': not in formal parameter list
+..\FWLIB\DIRECTION.C(36): error C244: 'Y_IN1': can't initialize, bad type or class
+..\FWLIB\DIRECTION.C(36): error C132: 'Y_IN1': not in formal parameter list
+..\FWLIB\DIRECTION.C(37): error C244: 'Y_IN2': can't initialize, bad type or class
+..\FWLIB\DIRECTION.C(37): error C132: 'Y_IN2': not in formal parameter list
+..\FWLIB\DIRECTION.C(38): error C141: syntax error near '}'
+compiling pwm.c...
+compiling uart.c...
+Target not created
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling main.c...
+compiling 12864.c...
+compiling direction.c...
+..\FWLIB\DIRECTION.C(34): error C244: 'Z_IN1': can't initialize, bad type or class
+..\FWLIB\DIRECTION.C(34): error C132: 'Z_IN1': not in formal parameter list
+..\FWLIB\DIRECTION.C(35): error C244: 'Z_IN2': can't initialize, bad type or class
+..\FWLIB\DIRECTION.C(35): error C132: 'Z_IN2': not in formal parameter list
+..\FWLIB\DIRECTION.C(36): error C244: 'Y_IN1': can't initialize, bad type or class
+..\FWLIB\DIRECTION.C(36): error C132: 'Y_IN1': not in formal parameter list
+..\FWLIB\DIRECTION.C(37): error C244: 'Y_IN2': can't initialize, bad type or class
+..\FWLIB\DIRECTION.C(37): error C132: 'Y_IN2': not in formal parameter list
+..\FWLIB\DIRECTION.C(38): error C141: syntax error near '}'
+compiling pwm.c...
+compiling uart.c...
+Target not created

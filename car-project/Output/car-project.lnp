@@ -1,0 +1,10 @@
+"..\Output\STARTUP.obj",
+"..\Output\main.obj",
+"..\Output\12864.obj",
+"..\Output\direction.obj",
+"..\Output\pwm.obj",
+"..\Output\uart.obj",
+"..\Output\exti.obj",
+"..\Output\count.obj" 
+TO "..\Output\car-project" 
+PRINT("..\Listing\car-project.m51") RAMSIZE(256) 

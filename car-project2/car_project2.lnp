@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"time.obj" 
+TO "car_project2" 
+RAMSIZE(256) 

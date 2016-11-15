@@ -1,0 +1,94 @@
+C51 COMPILER V9.53.0.0   COUNT                                                             05/24/2015 10:41:28 PAGE 1   
+
+
+C51 COMPILER V9.53.0.0, COMPILATION OF MODULE COUNT
+OBJECT MODULE PLACED IN ..\Output\count.obj
+COMPILER INVOKED BY: D:\Keil_MDK\C51\BIN\C51.EXE ..\FWlib\count.c OPTIMIZE(8,SPEED) BROWSE INCDIR(..\FWlib;..\User) DEBU
+                    -G OBJECTEXTEND PRINT(..\Listing\count.lst) TABS(2) OBJECT(..\Output\count.obj)
+
+line level    source
+
+   1          #include "config.h"
+   2          
+   3          /********初始化计数***********/
+   4          void Count_Init(void)
+   5          {
+   6   1        TMOD = 0x55;    // 定时器0，1作为计数器
+   7   1        TH0  = 0;   
+   8   1        TL0  = 0;
+   9   1        TH1  = 0;
+  10   1        TL1  = 0;
+  11   1        TR0  = 1;      //   打开计数器0，T0 -- P3.4 ,左轮
+  12   1        TR1  = 1;      //   打开计数器1，T1 -- P3.5 ，右轮
+  13   1        EA   = 1;      //   开总中断
+  14   1      
+  15   1        Stop();
+  16   1      }
+  17          
+  18          /*************读取计数器0值******************/
+  19          uint Count0(void)
+  20          {
+  21   1          uint IN0_num;
+  22   1          IN0_num = TH0*256 + TL0;
+  23   1          return IN0_num;
+  24   1      }
+  25          
+  26          /*************读取计数器0值******************/
+  27          uint Count1(void)
+  28          {
+  29   1          uint IN1_num;
+  30   1          IN1_num = TH1*256 + TL1;
+  31   1          return IN1_num;
+  32   1      }
+  33          
+  34          /*********清零计数传感器************/
+  35          void Count_Clear(void)
+  36          {   
+  37   1          uint a,b;
+  38   1          TR0  = 0;      //   关闭计数器0
+  39   1          TR1  = 0;      //   关闭计数器1
+  40   1          a = TH0 + TH1;
+  41   1          b = TL0 + TL1;
+  42   1          TH0  = a /2;   
+  43   1          TL0  = b /2;
+  44   1          TH1  = TH0;
+  45   1          TL1  = TL0;
+  46   1          TR0  = 1;      //   打开计数器0
+  47   1          TR1  = 1;      //   打开计数器1
+  48   1      }
+  49          
+  50          /************光电测速控制小车程序***************/
+  51          void Count_direction(uchar num_L,uchar num_R)
+  52          {
+  53   1          uint IN0_L,IN1_R;
+  54   1          IN0_L = Count0() + num_L;
+C51 COMPILER V9.53.0.0   COUNT                                                             05/24/2015 10:41:28 PAGE 2   
+
+  55   1          IN1_R = Count1() + num_R;
+  56   1          if(IN0_L == IN1_R)
+  57   1          {
+  58   2            Go();
+  59   2          }
+  60   1          if(IN0_L > IN1_R)
+  61   1          {
+  62   2            Left();
+  63   2          }
+  64   1          if(IN0_L < IN1_R)
+  65   1          {
+  66   2            Right();
+  67   2          }
+  68   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    172    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       4
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
